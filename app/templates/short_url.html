@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+
+{% block title %} Your URL | URL Short {% endblock %}
+
+
+
+
+
+{% block content %}
+
+<div class="container">
+
+    <section id="content" class="mt-5 text-center">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h1> Your shortened URL: </h1>
+                <div class="input-group flex-fill mb-5 mt-2">
+                    <input id="shortURL" type="text" class="form-control form-control-lg lead"
+                        value="{{ url_for('redirect_to_url', short_name=short_name, _external=True) }}" readonly />
+
+                    <div class="input-group-append">
+                        <button id="copyBtn" class="btn btn-theme-3 btn-lg border-0">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+
+                {% if url %}
+                <h1> Full URL: </h1>
+                <small> {{ url }} </small>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

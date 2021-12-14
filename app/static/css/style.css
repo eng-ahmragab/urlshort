@@ -1,0 +1,49 @@
+
+
+
+/* navbar */
+.navbar-fixed-margin{
+    margin-top: 3.5rem;
+}
+
+/* tabsNav Nav */
+/* not is used to execlude classes */
+
+/*
+#tabsNav .nav-link:not(.active):not(.disabled) {
+    color: #17a2b8 !important;
+}
+*/
+
+.bg-theme-1{
+    background-color: #437fc7 !important;
+}
+.text-theme-1{
+    color: #437fc7 !important;
+}
+.bg-theme-2{
+    background-color: #6DAFFE !important;
+}
+.text-theme-2{
+    color: #6DAFFE !important;
+}
+.bg-theme-3{
+    background-color: #B9732F !important;
+}
+.text-theme-3{
+    color:#B9732F !important;
+}
+
+.btn-theme-3{
+    background-color: #B9732F !important;
+    border-color: #B9732F !important;
+    color: white !important;
+}
+
+
+.btn-theme-3:hover{
+    background-color: #aa6621 !important;
+    border-color: #aa6621 !important;
+    color: white !important;
+}
+

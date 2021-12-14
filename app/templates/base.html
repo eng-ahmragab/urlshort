@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-4.6.0.min.css') }}">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fontawesome-5.15.3.all.min.css') }}">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+</head>
+
+
+
+
+<body>
+    <header>
+        <!-- navbar with toggle on small screens-->
+        <nav class="navbar navbar-expand-sm navbar-dark bg-theme-1 text-white">
+            <div class="container">
+                <a class="navbar-brand" href="{{ url_for('index') }}">
+                    <i class="fas fa-link"></i>
+                    URL Short
+                </a>
+
+
+                <!-- navbar toggler button on small screens -->
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarList">
+                    <span class="navbar-toggler-icon"> </span>
+                </button>
+
+                <!-- navbar collapse container -->
+                <div id="navbarList" class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto">
+                    </ul>
+
+                    <ul class="navbar-nav navbar-right">
+                        <!-- dropdown menu -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                <i class="fas fa-history fa-lg" title="Your recent short URLs" data-toggle="tooltip"
+                                    data-placement="left"></i>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                {% with short_names = session.get("short_names") %}
+                                    {% if short_names %}
+                                        {% for short_name in short_names %}
+                                            <a href="{{url_for('redirect_to_url', short_name=short_name)}}" class="dropdown-item" target="_blank">
+                                                {{ short_name }}
+                                            </a>
+                                        {% endfor%}
+                                    {% endif %}
+                                {% endwith%}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+
+
+
+
+
+
+
+
+    {% block main_jumbotron %}
+    {% endblock %}
+
+
+
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <section id="flashedMessages">
+        <div class="container">
+            {% for category, message in messages %}
+            <div class="alert alert-{{category}} alert-dismissible fade show mb-1" role="alert">
+                {{ message }}
+                <button class="close" data-dismiss="alert">
+                    <span> &times; </span>
+                </button>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    {% endif %}
+    {% endwith %}
+
+
+
+
+
+
+    {% block content %}
+    {% endblock %}
+
+
+
+
+    <div class="py-4"></div>
+
+    <footer></footer>
+
+
+
+
+
+
+
+
+    <script src="{{ url_for('static', filename='js/jquery-3.5.1.slim.min.js') }}"> </script>
+    <script src="{{ url_for('static', filename='js/bootstrap-4.6.0.bundle.min.js') }} "> </script>
+    <script defer src="{{ url_for('static', filename='js/main.js') }} "> </script>
+    <script>
+        //jquery to enable tooltips
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+</body>
+
+</html>

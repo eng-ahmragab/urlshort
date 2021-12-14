@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+
+{% block title %} URL Short {% endblock %}
+
+
+
+
+{% block main_jumbotron %}
+<section id="mainJumbotron">
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid text-center text-white bg-theme-2 mb-2">
+        <div class="container">
+            <h1 class="display-4"> URL Short </h1>
+            <p class="lead">
+                A simple tool built to help you shorten long urls or share pictures with prettier shortened urls.
+            </p>
+        </div>
+    </div>
+    {% endblock %}
+
+
+
+
+
+
+
+    {% block content %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-7 mx-auto mt-5">
+                <div class="card shadow-sm p-3">
+                    <div class="card-body">
+
+                        <section id="tabsNav">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#urlTab" data-toggle="tab"> URL </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#fileTab" data-toggle="tab"> Picture </a>
+                                </li>
+                            </ul>
+                        </section>
+
+                        <!-- tab content container -->
+                        <div class="tab-content mt-4">
+
+                            <section id="urlTab" class="tab-pane fade show active">
+                                <h4 class="mb-4"> Shorten a URL </h4>
+                                <form action="/shorten-url" method="POST" novalidate>
+                                    <div class="form-group">
+                                        <label for="url"> Website URL: </label>
+                                        <input type="url" id="url" name="url" class="form-control"
+                                            placeholder="https://www.example.com" required />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shortName"> Short Name: </label>
+                                        <input type="text" id="shortName" name="shortName" class="form-control"
+                                            required />
+                                    </div>
+                                    <button type="submit" class="btn btn-theme-3 btn-block py-2 mt-4"> Shorten </button>
+                                </form>
+                            </section>
+
+                            <section id="imageTab" class="tab-pane fade show">
+                                <h4 class="mb-4"> Upload a Picture </h4>
+                                <form action="/upload-image" method="POST" enctype="multipart/form-data" novalidate>
+                                    <div class="form-group">
+                                        <label for="fileInput"> File: </label>
+                                        <input type="file" id="fileInput" name="fileInput" class="form-control-file"
+                                            required />
+                                        <p class="text-muted">
+                                            Only .jpg, .png or .gif with max size of 1MB allowed
+                                        </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="shortName"> Short Name: </label>
+                                        <input type="text" id="shortName" name="shortName" class="form-control"
+                                            required />
+                                    </div>
+                                    <button type="submit" class="btn btn-theme-3 btn-block py-2 mt-4"> Shorten </button>
+                                </form>
+                            </section>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    {% endblock %}
