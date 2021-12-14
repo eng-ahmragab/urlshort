@@ -1,5 +1,5 @@
 # urlshort
-A simple tool built to help you shorten long urls or share pictures with prettier shortened urls.
+A simple tool built to help you shorten long urls or upload and share pictures with prettier shortened urls.
 
 
 
@@ -33,7 +33,7 @@ A simple tool built to help you shorten long urls or share pictures with prettie
 ```bash
   source venv/bin/activate
 ```
-- on Windows
+- On Windows
 ```bash
   .\venv\Scripts\activate.bat
 ```
