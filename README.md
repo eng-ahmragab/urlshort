@@ -23,12 +23,19 @@ A simple tool built to help you shorten long urls or share pictures with prettie
 ```
 3) Setup a virtual environment:
 ```bash
+  pip3 install virtualenv
+  mkdir venv
   python3 -m virtualenv venv
 ```
 
 4) Activate the virtual environment:
+- On Linux and OSX
 ```bash
-  source venv/Scripts/activate
+  source venv/bin/activate
+```
+- on Windows
+```bash
+  .\venv\Scripts\activate.bat
 ```
 
 5) Install the dependencies:
