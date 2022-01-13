@@ -10,7 +10,7 @@ A simple tool built to help you shorten long URLs or upload and share Pictures w
 - Upload Pictures and shorten their URLs.
 - Ability to check your recently created short URLs.
 
-![App Screenshot](https://i.ibb.co/VWDVFqf/screenshot.png)
+![App Screenshot](https://i.ibb.co/rwkRKpc/screen.png)
 
 
 
